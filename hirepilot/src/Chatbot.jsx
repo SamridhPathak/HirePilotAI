@@ -41,7 +41,8 @@ function Chatbot({open,setOpen}) {
 
   setTyping(true);
 
-  const response = await fetch("http://127.0.0.1:8001/chat", {
+  const BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8001";
+  const response = await fetch(`${BASE_URL}/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
