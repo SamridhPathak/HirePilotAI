@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-from app.routes import resume, interview , confidence
+from app.routes import resume, interview
+# from app.routes import confidence
 from fastapi.middleware.cors import CORSMiddleware
 from chatbot.chatbot_routes import router as chatbot_router
 import threading
 #from app.services.vision import start_confidence_tracking
-from app.routes import vision_routes
+# from app.routes import vision_routes
 from app.routes import leaderboard
 
 
