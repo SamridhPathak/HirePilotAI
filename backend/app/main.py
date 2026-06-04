@@ -1,19 +1,11 @@
 from fastapi import FastAPI
 from app.routes import resume, interview
-# from app.routes import confidence
 from fastapi.middleware.cors import CORSMiddleware
 from chatbot.chatbot_routes import router as chatbot_router
-import threading
-#from app.services.vision import start_confidence_tracking
-# from app.routes import vision_routes
 from app.routes import leaderboard
-
-
-
 
 app = FastAPI()
 
-# ✅ CORS (IMPORTANT)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,14 +14,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 🔥 Start background confidence tracking
-# threading.Thread(target=start_confidence_tracking, daemon=True).start()
-
-# ✅ ROUTES
 app.include_router(resume.router)
 app.include_router(interview.router)
-app.include_router(confidence.router)
-app.include_router(vision_routes.router)
 app.include_router(chatbot_router)
 app.include_router(leaderboard.router)
 
